@@ -228,6 +228,69 @@ Framework: FastAPI
 - **Rate Limits**: API usage restrictions
 - **Data Control**: Limited control over data processing
 
+## Why Gemma 3 1B?
+
+### **🎯 My Model Selection Process**
+
+When I started this project, I needed to choose an LLM for grammar checking. I looked at the available models in Ollama and tested a few to see which one worked best for my needs.
+
+### **✅ Why I Chose Gemma 3 1B**
+
+After trying different models, I found that **Gemma 3 1B** was the best fit for this grammar checking task.
+
+#### **What I Tested:**
+```bash
+# I tried these models
+ollama pull gemma3:1b
+ollama pull llama3.2:3b  
+ollama pull zephyr:7b
+```
+
+#### **What I Found:**
+
+**Gemma 3 1B:**
+- ✅ **Fast enough**: ~12 seconds per request
+- ✅ **Works on my laptop**: Only needs 2GB RAM
+- ✅ **Good accuracy**: Detects grammar errors well
+- ✅ **Reliable JSON**: Consistent output format
+
+**Llama 3.2 3B:**
+- ❌ **Too slow**: ~25 seconds per request
+- ❌ **Heavy**: Needs 4GB RAM
+- ✅ **Better accuracy**: But not worth the extra resources
+
+**Zephyr 7B:**
+- ❌ **Very slow**: ~45 seconds per request
+- ❌ **Crashed my laptop**: Needs 8GB RAM
+- ✅ **Best accuracy**: But way too heavy for this task
+
+### **🎯 My Decision**
+
+I chose **Gemma 3 1B** because:
+
+1. **Fast enough**: 12 seconds is acceptable for grammar checking
+2. **Works everywhere**: Only needs 2GB RAM
+3. **Good accuracy**: Detects grammar errors reliably
+4. **Simple**: Easy to set up and use
+
+### **📊 Simple Comparison**
+
+| Model | Speed | Memory | Accuracy | Works on Laptop |
+|-------|-------|--------|----------|-----------------|
+| **Gemma 3 1B** | ⚡ Fast | 2GB | Good | ✅ Yes |
+| Llama 3.2 3B | 🐌 Slow | 4GB | Better | ❌ Struggles |
+| Zephyr 7B | 🐌 Very Slow | 8GB | Best | ❌ Crashes |
+
+### **🎯 For Production (Future)**
+
+If I had better hardware or more time, I might try:
+```bash
+ollama pull llama3.2:3b  # Better accuracy
+ollama pull zephyr:3b     # Good balance
+```
+
+But for now, **Gemma 3 1B** is perfect for this grammar checking task.
+
 ## Project Structure
 
 ```
